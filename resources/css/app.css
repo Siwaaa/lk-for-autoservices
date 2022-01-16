@@ -1,0 +1,90 @@
+.form input,
+.form button {
+    margin:0;
+    border:0;
+    padding:0;
+    display:inline-block;
+    vertical-align:middle;
+    white-space:normal;
+    background:none;
+    line-height:1;
+}
+.form input:focus {
+    outline:0;
+}
+.form input[type=search] {
+	-webkit-appearance:textfield;
+	-webkit-box-sizing:content-box;
+}
+::-webkit-search-decoration {
+	display:none;
+}
+.form button,
+.form input[type="reset"],
+.form input[type="button"],
+.form input[type="submit"] {
+	/* Fix IE7 display bug */
+	overflow:visible;
+	width:auto;
+}
+::-webkit-file-upload-button
+{
+	padding:0;
+	border:0;
+	background:none;
+}
+.form p {
+    margin: 0;
+}
+.form *,
+.form *::after,
+.form *::before {
+    box-sizing: border-box;
+}
+#brand {
+}
+.form {
+    --unit: 8px;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input-container {
+    width: 100%;
+}
+.input-container__body {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--unit);
+}
+.input-container__body > label {
+    margin-bottom: var(--unit);
+}
+.input-container__body > input {
+    border: 1px solid #000;
+    border-radius: calc(var(--unit) / 2);
+    padding: var(--unit) calc(var(--unit) * 1.5);
+}
+.input-container__popap {
+    width: 100%;
+    height: 90px;
+    padding: var(--unit);
+    background-color: green;
+    border-radius: calc(var(--unit) / 2);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.input-container__popap > button {
+    padding: calc(var(--unit) / 2) 0;
+}
+.form-label {
+}
+.form-control {
+}
+.form-check-input {
+}
+.form-check-label {
+}

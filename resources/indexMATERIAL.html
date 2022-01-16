@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material/dist/vue-material.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material/dist/theme/default.css">
+</head>
+
+<body>
+    <style>
+
+    </style>
+    <div id="app">
+        <div class="c">
+            <md-autocomplete v-model="selectedBrands" :md-options="brands" md-layout="box" md-dense>
+                <label>Марка</label>
+            </md-autocomplete>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-material"></script>
+    <script>
+        Vue.use(VueMaterial.default)
+        const app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    brands: [],
+                    selectedBrands: null,
+                }
+            },
+            computed: {
+
+            },
+            methods: {
+                setBrand(b) {
+                    console.log(b);
+                },
+                getBrands() {
+                    fetch("http://127.0.0.1:8000/api/brands")
+                        .then((response) => response.json())
+                        .then((data) => this.brands = data.data);
+                },
+
+            },
+            watch: {
+
+            },
+            mounted() {
+                this.getBrands();
+            }
+        })
+    </script>
+</body>
+
+</html>
