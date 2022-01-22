@@ -15,14 +15,14 @@ class BrandController extends Controller
     public function index()
     {
         $brandsCollection = Brand::orderBy('name', 'asc')->get();
-        $brands = [];
 
-        foreach ($brandsCollection as $b) {
-            array_push($brands, $b->name);
-        }
+        // $brands = [];
+        // foreach ($brandsCollection as $b) {
+        //     array_push($brands, $b->name);
+        // }
 
         return response()->json([
-            'data' => $brands
+            'data' => $brandsCollection
         ],200);
     }
 

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Http;
 class AutoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Возвращает массив объектов всех авто заданной марки
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,10 +19,11 @@ class AutoController extends Controller
     {
         // $autos = Brand::find($request->brand_id)->autos;
 
-        // Странно, но после тестирования запросов с Relationships и без, быстрее оказался второй вариант
+        // Странно, но после тестирования запросов с relationships и без, быстрее оказался второй вариант
         $brand = Brand::where('name', $request->brand)->first();
         $autos = Auto::where('brand_id', $brand->id)
             ->select(['id_modification', 'class_vaksoil','brand_id','brand_RUS', 'model', 'series', 'generation', 'year_start_GENERATION', 'year_finish_GENERATION', 'modification'])
+            ->orderBy('model', 'asc')
             ->get();
         // select нужен для уменьшения времени обработки запроса. Вернет не все значения таблицы, а только указанные
 

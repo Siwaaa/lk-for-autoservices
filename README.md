@@ -20,11 +20,11 @@ php artisan passport:install # обновляем данные для аутен
 
 На **сервере**:
 ```sh
-cd /var/www/www-root/data/www/mammmmmmm
+cd /var/www/u1572462/data/www/lk.waxoyl-spb.ru
 git pull
 ```
 
-Заменить строки в .env
+Заменить строки в .env для установки настроек сервера и production mod
 ```sh
 cp -f .env.example .env
 ```
